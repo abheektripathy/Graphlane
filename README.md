@@ -1,1 +1,1 @@
-who said we can't innovate activity managers?
+Track your liquidity pool gains and impermanant losses.
