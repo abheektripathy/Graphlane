@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { createStyles, Group, Paper, SimpleGrid, Text } from '@mantine/core';
 import {
   IconUserPlus,
@@ -7,6 +8,11 @@ import {
   IconArrowUpRight,
   IconArrowDownRight,
 } from '@tabler/icons';
+import { responsePathAsArray } from 'graphql';
+
+import React, { useState, useEffect } from 'react'
+import {createClient} from 'urql';
+
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -45,11 +51,81 @@ const icons = {
 
 //can i provide my fetched data here?
 
+
+
 interface StatsGridProps {
   data: { title: string; icon: keyof typeof icons; value: string; diff: number }[];
 }
 
-export function StatsGrid({ data }: StatsGridProps) {
+export function StatsGrid({ data}: StatsGridProps) {
+
+
+
+
+
+//   const APIURL = "https://api.thegraph.com/subgraphs/name/messari/sushiswap-polygon"
+
+//   const query = `
+//   query {
+//     deposits(where: {
+//       from: "0x47b0ec1bea7d8ecc7cf70c3bf82c5f5d15a96b6d"
+//     }) {
+//       timestamp
+//       from
+//       inputTokens { id name }
+//       outputToken { id name }
+//       inputTokenAmounts
+//       outputTokenAmount
+//       amountUSD
+//       pool { id }
+//     }
+    
+//       withdraws(where: {
+//       from: "0x47b0ec1bea7d8ecc7cf70c3bf82c5f5d15a96b6d"
+//     }) {
+//       timestamp
+//       from
+//       inputTokens { id name }
+//       outputToken { id name }
+//       inputTokenAmounts
+//       outputTokenAmount
+//       amountUSD
+//       pool { id }
+//     }
+//   }
+  
+//   `
+//   // the issue it seems is i need to map the data, cause i cant get the timestamp from directl
+
+//   const client = createClient({
+//     url: APIURL,
+//   })
+
+//   async function fetchdata() {
+//     const response = await //@ts-ignore
+//     client.query(query).toPromise()
+//     const { //@ts-ignore
+//       data2} = await response
+//     console.log(`data2:`,data2.deposits.timestamp)
+
+//     data2.map((datapoint: any) => {
+//       console.log(`datapoint:`,datapoint)
+//     })
+    
+//     //console.log(`response:`,response)
+//   }
+
+
+// useEffect(() => {
+//  fetchdata()      
+// },[])
+
+
+
+
+
+
+
   const { classes } = useStyles();
   
   const stats = data.map((stat) => {
