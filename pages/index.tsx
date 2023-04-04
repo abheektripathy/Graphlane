@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 import { Flex } from "@mantine/core";
 import Head from "next/head";
-
+//@ts-ignore
 import { ComposableMap, Geographies, Geography } from "react-simple-maps"
 
 const geoUrl =
